@@ -67,5 +67,6 @@ while(state==0)
    end
    
 end
+%boundary_loc(2)=[];
 
 clear i j k state state_n target_pic target_pic_boundary tmp_circle_loc
