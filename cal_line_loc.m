@@ -15,6 +15,32 @@ function f=cal_line_loc(result_tmp,outline_basic_data)
     data_for_line_1=[tmp_loc_x,loc_y'];
     all_line_data=[all_line_data,{data_for_line_1}];
     
+    % line_2
+    k_for_line_2=(result_tmp(3,2)-result_tmp(2,2))/(result_tmp(3,1)-result_tmp(2,1));
+    b_for_line_2=result_tmp(3,2)-k_for_line_2*result_tmp(3,1);
+    tmp_loc=k_for_line_2*loc_x'+b_for_line_2;
+    data_for_line_2=[loc_x',tmp_loc];
+    all_line_data=[all_line_data,{data_for_line_2}];
+    
+    % line_3
+    k_for_line_3=(result_tmp(3,2)-result_tmp(4,2)/(result_tmp(3,1)-result_tmp(4,1)));
+    b_for_line_3=result_tmp(3,2)-k_for_line_3*result_tmp(3,1);
+    if isinf(k_for_line_3) 
+        tmp_loc_x=zeros(length(loc_y),1)+result_tmp(3,1);
+    else
+        tmp_loc_x=(loc_y'-b_for_line_3)/k_for_line_3;
+    end
+    
+    data_for_line_3=[tmp_loc_x,loc_y'];
+    all_line_data=[all_line_data,{data_for_line_3}];
+    
+    % line_4
+    k_for_line_4=(result_tmp(4,2)-result_tmp(1,2))/(result_tmp(4,1)-result_tmp(1,1));
+    b_for_line_4=result_tmp(4,2)-k_for_line_4*result_tmp(4,1);
+    tmp_loc=k_for_line_4*loc_x'+b_for_line_4;
+    data_for_line_4=[loc_x',tmp_loc];
+    all_line_data=[all_line_data,{data_for_line_4}];
+    
 %     k_for_line_2=(result_tmp(3,2)-result_tmp(2,2)/(result_tmp(3,1)-result_tmp(2,1)));
 %     b_for_line_2=result_tmp(3,2)-k_for_line_2*result_tmp(3,1);
 %     data_for_line_2=[(loc_y'-b_for_line_2)/k_for_line_2,loc_y'];

@@ -6,4 +6,5 @@ get_outline;
 get_outline_loc;
 %求取切线方程，也可以是四条切线的四个交点,使用模拟退火算法
 get_key_points;
-
+%模拟退火算法 求解最优的四条切线
+SA_for_best_points
