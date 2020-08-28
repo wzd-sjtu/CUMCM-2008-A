@@ -54,10 +54,9 @@ while T_now>=T_min
             best_result=result;
             best_square_size=E;
         end
-        if T_now==100||T_now<0.014
-            figure;
+        
             show_the_pic;
-        end
+   
 %         disp(best_square_size);
     end
 end
